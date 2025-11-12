@@ -3,6 +3,33 @@
 GET https://encuisine.adrienrossignol.fr/recettes
 Content-Type: application/json
 
+### Récupérer la liste des recettes
+GET http://localhost:3000/api/recettes
+Content-Type: application/json
+
+### Récupérer une recette par son ID
+GET http://localhost:3000/api/recettes/1  
+Content-Type: application/json
+
+### Enregistrer un nouvel utilisateur
+POST http://localhost:3000/api/local/register
+Content-Type: application/json
+
+{
+  "nom": "testUser",
+  "email": "tesTTT2@test.fr",
+  "motdepasse": "testpassword"
+}
+
+### Connexion d'un utilisateur
+POST http://localhost:3000/api/local/login
+Content-Type: application/json
+
+{
+  "email": "tesTTT2@test.fr",
+  "motdepasse": "testpassword"
+}
+
 ### Créer une nouvelle recette
 POST {{baseUrl}}/api/recettes
 Content-Type: application/json
@@ -19,9 +46,8 @@ Authorization: Bearer {{token}}
 }
 
 ### créer recette test 1
-POST {{baseUrl}}/api/recettes
+POST http://localhost:3000/api/recettes
 Content-Type: application/json
-Authorization: Bearer {{token}}
 
 {
   "data": {
