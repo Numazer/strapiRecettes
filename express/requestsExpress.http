@@ -1,7 +1,6 @@
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibm9tIjoidGVzdFVzZXIiLCJlbWFpbCI6InRlc1RUVDJAdGVzdC5mciIsImlhdCI6MTc2Mjk1NzQzNSwiZXhwIjoxNzYyOTYxMDM1fQ.Zo95cexuYPUJDdTKMn-MeEfYq2-3Xmjrtf_BrN_k2PA
-
-@baseUrl = http://localhost:1337
-GET https://encuisine.adrienrossignol.fr/recettes
+@baseUrl = http://localhost:3000
+≈GET https://encuisine.adrienrossignol.fr/recettes
 Content-Type: application/json
 
 ### Récupérer la liste des recettes

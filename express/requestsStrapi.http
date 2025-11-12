@@ -1,0 +1,162 @@
+@token = 677c5d950a2a157df0f44bf87cfc008e4799415b3085fd86b0eaa8db26efd3d9d0f84cc09338dbaf5fe18a34074a2fd42a46fccfe652349848a7c30528df4b65ae887336d4a6ee5a629108f525bee3f9987e3ad7c90863fb95907533bea16732734aecbcda3559e33e621d2464ed6c39ec7fcce83b58a2d5f037e4f76eb00414
+@baseUrl = http://localhost:1337
+GET https://encuisine.adrienrossignol.fr/recettes
+Content-Type: application/json
+
+### Récupérer la liste des recettes
+GET http://localhost:3000/api/recettes
+Content-Type: application/json
+
+### Récupérer une recette par son ID
+GET http://localhost:3000/api/recettes/1  
+Content-Type: application/json
+
+### Enregistrer un nouvel utilisateur
+POST http://localhost:3000/api/local/register
+Content-Type: application/json
+
+{
+  "nom": "testUser",
+  "email": "tesTTT2@test.fr",
+  "motdepasse": "testpassword"
+}
+
+### Connexion d'un utilisateur
+POST http://localhost:3000/api/local/login
+Content-Type: application/json
+
+{
+  "email": "tesTTT2@test.fr",
+  "motdepasse": "testpassword"
+}
+
+### Créer une nouvelle recette
+POST {{baseUrl}}/api/recettes
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "data": {
+    "titre": "Recette de test",
+    "description": "Ajouter oeufs et lait",
+    "difficulte": 15,
+    "tempsPrep": 25,
+    "budget": 4
+  }
+}
+
+### créer recette test 1
+POST http://localhost:3000/api/recettes
+Content-Type: application/json
+
+{
+  "data": {
+    "titre": "Recette de test 1",
+    "description": "Ajouter oeufs et lait",
+    "difficulte": 15,
+    "tempsPrep": 25,
+    "budget": 4
+  }
+}
+
+### créer recette test 2
+POST {{baseUrl}}/api/recettes
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "data": {
+    "titre": "Recette de test 2",
+    "description": "Ajouter oeufs et lait",
+    "difficulte": 15,
+    "tempsPrep": 25,
+    "budget": 4
+  }
+}
+
+### créer recette test 3
+POST {{baseUrl}}/api/recettes
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "data": {
+    "titre": "Recette de test 3",
+    "description": "Ajouter oeufs et lait",
+    "difficulte": 15,
+    "tempsPrep": 25,
+    "budget": 4
+  }
+}
+
+
+### créer recette test 4
+POST {{baseUrl}}/api/recettes
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "data": {
+    "titre": "Recette de test 4",
+    "description": "Ajouter oeufs et lait",
+    "difficulte": 15,
+    "tempsPrep": 25,
+    "budget": 4
+  }
+}
+
+### créer recette test 5
+POST {{baseUrl}}/api/recettes
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "data": {
+    "titre": "Recette de test 5",
+    "description": "Ajouter oeufs et lait",
+    "difficulte": 15,
+    "tempsPrep": 25,
+    "budget": 4
+  }
+}
+
+### créer recette test 6
+POST {{baseUrl}}/api/recettes
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "data": {
+    "titre": "Recette de test 6",
+    "description": "Ajouter oeufs et lait",
+    "difficulte": 15,
+    "tempsPrep": 25,
+    "budget": 4
+  }
+}
+
+### Récupérer la liste des recettes
+GET {{baseUrl}}/api/recettes
+Content-Type: application/json  
+
+### Récupérer une recette par son document ID
+GET {{baseUrl}}/api/recettes/q7bzavuvpss2jzog52g0qkfx
+Content-Type: application/json
+
+### Mettre à jour une recette
+PUT {{baseUrl}}/api/recettes/q7bzavuvpss2jzog52g0qkfx
+Content-Type: application/json
+
+{
+  "data": {
+    "titre": "Recette de test",
+    "description": "Ajouter oeufs et lait",
+    "difficulte": 15,
+    "tempsPrep": 25,
+    "budget": 5
+  }
+}
+
+### Supprimer une recette
+DELETE {{baseUrl}}/api/recettes/q7bzavuvpss2jzog52g0qkfx
+Content-Type: application/json

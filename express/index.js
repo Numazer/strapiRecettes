@@ -1,6 +1,6 @@
 import express from 'express';      
-import router from './controllers/controller.js'
-import authRouter from './controllers/auth.js'
+import router from './controllers/recipeController.js'
+import authRouter from './controllers/authController.js'
 import { tchekToken } from './middlewares/tchekToken.js';
 
 router.use(authRouter);
