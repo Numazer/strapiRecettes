@@ -1,0 +1,58 @@
+name: CI/CD Pipeline
+
+on: 
+  push: 
+    branches: [ master ]
+  
+
+jobs: 
+  # test: 
+  #   runs-on: ubuntu-latest
+  #   steps: 
+  #     - uses: actions/checkout@v4
+
+  #     - name: Set up Node
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: '22'
+  #         cache: 'npm'
+  #         cache-dependency-path: 'express/package-lock.json'
+      
+  #     - name: Install Deps
+  #       working-directory: ./express
+  #       run: npm install
+
+      # - name: Run tests
+      #   working-directory: ./express
+      #   run: npm test
+      #   env:
+      #     SQLITE_DB_LOCATION: ./test-todo.db
+
+        
+
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'express/package-lock.json'
+      
+      - name: Install Deps
+        working-directory: ./express
+        run: npm install
+
+      - name: Build
+        run: docker build -t expressapi ./express
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Trigger Render.com deployment
+      run: curl "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
