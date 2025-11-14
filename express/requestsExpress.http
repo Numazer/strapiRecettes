@@ -160,3 +160,15 @@ Content-Type: application/json
 ### Supprimer une recette
 DELETE {{baseUrl}}/api/recettes/q7bzavuvpss2jzog52g0qkfx
 Content-Type: application/json
+
+### Ajouter des ingrédients à une recette
+POST http://localhost:3000/api/recettes/1/ingredients
+Content-Type: application/json
+
+{
+  "ingredients": [
+    { "name": "Farine", "quantite": "200g" },
+    { "name": "Sucre", "quantite": "50g" },
+    { "name": "Œufs", "quantite": "2" }
+  ]
+}

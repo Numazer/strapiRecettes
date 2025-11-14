@@ -116,5 +116,38 @@ router.delete('/recettes/:documentId', async (req, res) => {
   }
 });
 
+router.post('/recettes/:documentId/ingredients', async (req, res) => {
+  try {
+    const { ingredients } = req.body;
+    const recetteId = req.params.documentId;
+
+    const db = await open({
+      filename: './database.db',
+      driver: sqlite3.Database,
+    });
+
+    for (const ing of ingredients) {
+      const ingredientRow = await db.get(
+        "SELECT id FROM ingredients WHERE name = ?",
+        [ing.name]
+      );
+
+      if (ingredientRow) {
+        await db.run(
+          "INSERT INTO recettes_ingredients (recette_id, ingredient_id, quantite) VALUES (?, ?, ?)",
+          [recetteId, ingredientRow.id, ing.quantite]
+        );
+      } else {
+        console.warn(`Ingrédient non trouvé: ${ing.name}`);
+      }
+    }
+
+    res.status(201).json({ message: 'Ingrédients ajoutés à la recette avec succès' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Erreur lors de l\'ajout des ingrédients à la recette' });
+  }
+});
+
 
 export default router;
