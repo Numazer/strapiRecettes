@@ -12,12 +12,12 @@ GET http://localhost:3000/api/recettes/1
 Content-Type: application/json
 
 ### Enregistrer un nouvel utilisateur
-POST http://localhost:3000/api/local/register
+POST http://localhost:4000/api/local/register
 Content-Type: application/json
 
 {
   "nom": "testUser",
-  "email": "tesTTT2@test.fr",
+  "email": "tesTTTT2@test.fr",
   "motdepasse": "testpassword"
 }
 

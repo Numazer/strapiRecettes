@@ -1,7 +1,7 @@
 import express from 'express';
 import { open } from 'sqlite';
 import sqlite3 from 'sqlite3';
-import recette from '../../src/api/recette/controllers/recette.js';
+import recette from '../../strapiApi/src/api/recette/controllers/recette.js';
 
 const router = express.Router();
 
