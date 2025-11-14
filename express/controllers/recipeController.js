@@ -1,17 +1,16 @@
 import express from 'express';
 import { open } from 'sqlite';
 import sqlite3 from 'sqlite3';
-import recette from '../../strapiApi/src/api/recette/controllers/recette.js';
 
 const router = express.Router();
 
 router.get('/recettes', async (req, res) => {
   try {
     const db = await open({
-        filename: './database.db',
+        filename: 'database.db',
         driver: sqlite3.Database,
       });
-
+      console.log(db);
     const recettes = await db.all('SELECT * FROM recettes');
     res.json(recettes);
   } catch (error) {
@@ -25,7 +24,7 @@ router.post('/recettes', async (req, res) => {
     const { titre, description, difficulte, tempsPrep, budget } = req.body.data;
 
     const db = await open({
-        filename: './database.db',
+        filename: 'database.db',
         driver: sqlite3.Database,
       });
 
@@ -46,7 +45,7 @@ router.post('/recettes', async (req, res) => {
 router.get('/recettes/:documentId', async (req, res) => {
   try {
     const db = await open({
-        filename: './database.db',
+        filename: 'database.db',
         driver: sqlite3.Database,
       });
 
@@ -72,7 +71,7 @@ router.put('/recettes/:documentId', async (req, res) => {
     const { titre, description, difficulte, tempsPrep, budget } = req.body.data;
 
     const db = await open({
-        filename: './database.db',
+        filename: 'database.db',
         driver: sqlite3.Database,
       });
 
@@ -97,7 +96,7 @@ router.put('/recettes/:documentId', async (req, res) => {
 router.delete('/recettes/:documentId', async (req, res) => {
   try {
     const db = await open({
-        filename: './database.db',
+        filename: 'database.db',
         driver: sqlite3.Database,
       });
 
@@ -122,7 +121,7 @@ router.post('/recettes/:documentId/ingredients', async (req, res) => {
     const recetteId = req.params.documentId;
 
     const db = await open({
-      filename: './database.db',
+      filename: 'database.db',
       driver: sqlite3.Database,
     });
 

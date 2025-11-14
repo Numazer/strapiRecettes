@@ -60,9 +60,8 @@ Content-Type: application/json
 }
 
 ### créer recette test 2
-POST {{baseUrl}}/api/recettes
+POST http://localhost:3000/api/recettes
 Content-Type: application/json
-Authorization: Bearer {{token}}
 
 {
   "data": {

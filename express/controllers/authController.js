@@ -12,7 +12,7 @@ router.post('/local/register', async (req, res) => {
     const { nom, email, motdepasse } = req.body;
 
     const db = await open({
-        filename: './database.db',
+        filename: 'database.db',
         driver: sqlite3.Database,
       });
 
@@ -34,7 +34,7 @@ router.post('/local/login', async (req, res) => {
     const { email, motdepasse } = req.body;
 
     const db = await open({
-        filename: './database.db',
+        filename: 'database.db',
         driver: sqlite3.Database,
       });
 
