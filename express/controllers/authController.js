@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.post('/local/register', async (req, res) => {
     const { nom, email, motdepasse } = req.body;
-
+    const ok = 'manu'
     const db = await open({
         filename: 'database.db',
         driver: sqlite3.Database,
